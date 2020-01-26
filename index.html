@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- libraries -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=9d8222c1-de1c-455e-ae9e-ec37d43c2c5d&lang=ru_RU"
+        type="text/javascript"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- user scripts -->
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div id="map" class="mx-auto" style="width: 600px; height: 400px; "></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm text-center mt-2">
+                    <button type="button" class="btn btn-primary" onclick="getRandomCoords()" id="btn-start">Начать игру</button>
+                    
+                    <p id="game-streetname"></p>
+
+                    <p id="game-result"></p>
+                </div>
+
+        </div>
+
+      
+
+    </div>
+    </div>
+
+</body>
+
+</html>
