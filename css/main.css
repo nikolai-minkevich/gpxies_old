@@ -1,1 +1,14 @@
 #mapid { height: 300px; width: 500px;}
+@font-face {
+    font-family: JetBrainsMono-Regular; 
+    src: url(fonts/JetBrainsMono-Regular.ttf); 
+}
+.start-page {font-family: "WebFont", Arial, sans-serif;}
+
+.page-header
+.page-header__title--primary
+.page-header__title--secondary
+.page-main
+.page-main__button--primary
+.page-main__track-list
+.track-list__item 
