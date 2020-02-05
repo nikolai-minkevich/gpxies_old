@@ -1,13 +1,74 @@
 #mapid { height: 300px; width: 500px;}
-@font-face {
-    font-family: JetBrainsMono-Regular; 
-    src: url(fonts/JetBrainsMono-Regular.ttf); 
+*{box-sizing: border-box;}
+body{
+    font-family: 'Krub', sans-serif;
+    background-color:whitesmoke;
+    font-size: 15px;
+    line-height: 24px;
 }
-.start-page {font-family: "WebFont", Arial, sans-serif;}
 
-.page-header
-.page-header__title--primary
-.page-header__title--secondary
+.container {    
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    background-color: white;
+
+}
+.page-header {
+    background-color:whitesmoke;
+}
+.header-menu  a{
+    color: #fff;
+    background: rgb(212,75,56); /* фон кнопки */
+    outline: none; /* убирать контур в Mozilla */
+    padding: 10px;
+    /* text-transform: uppercase;*/
+    /*font-size: 10px;*/
+    border-top-left-radius: 10px;
+    border-top-right-radius:  10px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    border: 1px white solid;
+
+} 
+
+.header-menu a:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
+
+a {
+    text-decoration: none; 
+    user-select: none;
+    color: inherit;
+}
+.header__top{
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.header-menu{
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    padding-left: 0px;
+    margin-bottom: 0px;
+
+}
+
+
+li {
+    list-style-type: none;
+    }
+
+.login{
+    padding-right: 50px;
+}
+nav{box-sizing: border-box;}
+.page-header__title{
+  
+}
+.start-page 
 .page-main
 .page-main__button--primary
 .page-main__track-list
