@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app='gpxiesApp'>
+
+<head>
+    <title>gpXies</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/gpx.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    
+    <script src="app/app.js"></script>
+    <script src="app/trackView.js"></script>
+    
+</head>
+
+<body class="start-page" ng-controller='trackView'>
+    <header class="page-header">
+        <h3 class="page-header__title--secondary">Gpsies is dead. Long live Gp<b>x</b>ies!</h3>
+        <small>Обновление </small>
+
+        <h2 class="page-header__title--primary">Creating new track {{test}}</h2>
+    </header>>
+    <main class="page-main">
+
+        <div id="mapid"></div>
+        <script src="js/main.js"></script>
+
+        <button class="page-main__button--primary" onclick='clearCurrentTrack()'>Clear all</button>
+        <p id='track-info'></p>
+        <p id='coords'></p>
+        <p id="trackList">{{trackList}}
+
+            <ul class="page-main__track-list">
+                <li class="track-list__item" ng-repeat="t in trackList">
+                    {{t.id}}, {{t.title}}, {{t.filename}} <button ng-click="showTrack1(t.filename)">show</button>
+                </li>
+            </ul>
+
+        </p>
+    </main>>
+
+
+</body>
+
+</html>
