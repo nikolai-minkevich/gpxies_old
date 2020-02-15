@@ -4,19 +4,26 @@
         <link href="https://fonts.googleapis.com/css?family=Krub:400,600&display=swap" rel="stylesheet">
     </head>
     <body>
-        <form class="container__signUp">
-            <h3>
-                Joint to gp<big>x</big>ies
+        <form class="container__signUp" method="post">
+            <h3 class="header__signUp">
+                Регистрация
             </h3>
-                <label for="loginField" >Логин</label>
-                <input type="text" id="loginField">
-                <label for="Password" >Пароль</label>
-                <input type="password" id="Password">
+                <label for="loginField">логин или email</label>
+                <input type="text" id="loginField" required>
+                <label for="Password">пароль</label>
+                <input type="password" id="Password" required>  
                 <label for="email">email</label>
-                <input type="email" id="email">
+                <input type="email" id="email" required>
+                <label for="countries">страна</label>
+                <select id="countries" required>
+                    <option id="Россия" value="1">India</option>
+                    <option id="Украина" value="2">Nepal</option>
+                    <option id="Финляндия" value="3">Iran</option>
+                </select>
                 <div class="container__button--primary">
                     <a href="#" class="button--primary">Зарегистрироваться</a>           
                     <a href="#" class="link">Вход</a>         
                 </div>
+
         </form>
     </body>
