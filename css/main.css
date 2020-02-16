@@ -6,7 +6,9 @@ input{
     padding: 15px;
     font-size: 14px;
     border: rgb(187, 187, 187) solid 1px;
-
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: none;
 }
 input:hover{
     background: whitesmoke;
@@ -17,7 +19,9 @@ select{
     height: 30px;
     padding: 15px;
     font-size: 14px;
+    margin-bottom: 10px;
 }
+
 body{
     font-family: 'Open Sans', sans-serif;
     background-color:whitesmoke;
@@ -31,13 +35,19 @@ body{
     margin-right: auto;
     padding: 15px;
     background-color: white;
-    flex-wrap: nowrap;
+}
+.container--max{ 
+        width: 1200px;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        flex-wrap: nowrap;
 }
 .page-header {
     background-color:whitesmoke;
 }
 .header-menu  a{
-
     background: #eae9e9; /* фон кнопки */
     outline: none; /* убирать контур в Mozilla */
     padding: 7px;
@@ -49,6 +59,32 @@ body{
     text-transform: uppercase;
     font-size: 14px;
 } 
+.header-btn{
+    display: flex
+}
+.header-btn  a{
+
+    outline: none; /* убирать контур в Mozilla */
+    padding: 3px;
+    border-radius: 7px;
+    margin-right: 5px;
+    min-width:160px;
+    display:block;
+    font-size: 14px;
+    text-align: center;
+} 
+.login{
+    border: solid 3px  whitesmoke;
+    border-radius: 5px;
+}
+.header-btn .sign-up:hover{
+    border: solid 3px  whitesmoke;
+    border-radius: 5px;
+}
+.header-btn .sign-up{
+    border: solid 3px  white;
+    border-radius: 5px;
+}
 .header-menu a .current {
     color: #fff;
 }
@@ -64,7 +100,7 @@ a {
 .header__top{
     display: flex;
     justify-content: space-between;
-
+    align-items: baseline;
 
 }
 
@@ -82,30 +118,14 @@ li {
     list-style-type: none;
     }
 
-.login{
-    margin-right: 50px;
-    border: solid 3px  whitesmoke;
-    border-radius: 5px;
-    padding: 5px;
-    padding-right: 20px;
-    padding-left: 20px;
-    box-sizing: border-box;
-}
+
 
 .page-header__title{
     font-weight: 600;
     font-size: 24px;
 }
-.header__signUp {
-    height: 20px;
-    text-align: center;
-    font-size: 24px;
-}
-.header__signIn {
-    height: 20px;
-    text-align: center;
-    font-size: 24px;
-}
+
+
 /*
 
 
@@ -116,8 +136,12 @@ li {
 .page-main__track-list
 .track-list__item 
 +login*/
-
-.container__signIn {
+.header__signUp, .header__signIn, .header__restore {
+    height: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+.container__signIn, .container__signUp, .container__restore  {
     display: flex;
     border-radius: 10px;
     width: 400px;
@@ -126,20 +150,22 @@ li {
     padding: 15px;
     background-color: white;
     flex-direction: column;
+    border: rgb(187, 187, 187) solid 1px;
 }
 .button--primary{
-    
+
     color: white;
     text-decoration: none;
     padding: 7px;
     text-align:center;
-    box-sizing: border-box;
-    border-radius: 7px;
     background: rgb(64,199,129);
     box-shadow: 0 -3px rgb(53,167,110) inset;
     transition: 0.2s;
-    min-width: 130px;
+    width: 100%;
+    max-width: none;
+
 }
+
 .button--primary:hover { 
     background: rgb(53, 167, 110);
     } 
@@ -148,29 +174,23 @@ li {
     box-shadow: 0 3px rgb(33,147,90) inset;
 }
 .container__button--primary{
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    font-size: 16px;
 }
 .link:hover{
     text-decoration-line: underline;
 }
-.container__signUp{
-    display: flex;
-    border-radius: 10px;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 15px;
-    background-color: white;
-    flex-direction: column;
+.container__button--primary .link {
+    opacity: 0.5
 }
-.container__signUp label{
-    margin-top: 15px;
-    margin-bottom: 3px;
-}
-.container__signIn label{
+.container__button--primary .link:hover {
+    opacity: 1}
+
+.container__signUp label, .container__signIn label, .container__restore label{
     margin-top: 15px;
     margin-bottom: 3px;
 }
