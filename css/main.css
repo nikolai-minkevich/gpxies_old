@@ -1,11 +1,12 @@
 /*index.html*/
-#mapid { height: 300px; width: 500px;}
+#mapid { height: 550px; width: 1200px;}
 *{box-sizing: border-box;}
 input{
     height: 30px;
     padding: 15px;
     font-size: 14px;
     border: rgb(187, 187, 187) solid 1px;
+    background-color: rgb(245, 245, 245, 0.5);
     margin-bottom: 10px;
     width: 100%;
     max-width: none;
@@ -27,7 +28,6 @@ body{
     font-size: 15px;
     line-height: 24px;
 }
-
 .container {    
     width: 1200px;
     margin-left: auto;
@@ -55,7 +55,6 @@ body{
     margin-right: 5px;
     width:150px;
     display:block;
-    text-transform: uppercase;
     font-size: 14px;
 } 
 .header-btn{
@@ -73,15 +72,17 @@ body{
     text-align: center;
 } 
 .login{
-    border: solid 3px  whitesmoke;
+    border: solid 1px rgb(33,147,90, 0.5);
     border-radius: 5px;
+    color: rgb(33,147,90);
 }
 .header-btn .sign-up:hover{
-    border: solid 3px  whitesmoke;
+    border: solid 1px  rgb(33,147,90, 0.5);
     border-radius: 5px;
+    color: rgb(33,147,90);
 }
 .header-btn .sign-up{
-    border: solid 3px  white;
+    border: solid 1px  white;
     border-radius: 5px;
 }
 .header-menu a .current {
@@ -135,38 +136,50 @@ li {
 .page-main__track-list
 .track-list__item 
 +login*/
-.header__signUp, .header__signIn, .header__restore {
+.header__signUp, .header__signIn, .header__restore, .header__setting {
     height: 20px;
     text-align: center;
     font-size: 24px;
+    border-bottom: whitesmoke solid 2px;
+    padding-bottom: 35px;
 }
-.container__signIn, .container__signUp, .container__restore  {
+
+
+
+.container__signIn, .container__signUp, .container__restore {
     display: flex;
     border-radius: 10px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: white;
+    flex-direction: column;
+    border: rgb(187, 187, 187) solid 1px;
+}
+
+.container__setting {
+    display: flex;
     width: 400px;
     margin-left: auto;
     margin-right: auto;
     padding: 15px;
     background-color: white;
     flex-direction: column;
-    border: rgb(187, 187, 187) solid 1px;
+
 }
 .button--primary{
-
     color: white;
     text-decoration: none;
     padding: 7px;
     text-align:center;
-    background: rgb(64,199,129);
-    box-shadow: 0 -3px rgb(53,167,110) inset;
-    transition: 0.2s;
+    background-image: linear-gradient(-180deg,#22aa56, #22aa569c);
     width: 100%;
     max-width: none;
 
 }
-
 .button--primary:hover { 
-    background: rgb(53, 167, 110);
+    background:#22aa56;
     } 
 .button--primary:active{
     background: rgb(33,147,90);
@@ -193,3 +206,10 @@ li {
     margin-top: 15px;
     margin-bottom: 3px;
 }
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    }
