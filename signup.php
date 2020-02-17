@@ -1,6 +1,5 @@
 <?php
 include_once "../conf.php";
-//setcookie("token", 'secrett0ken', time()+3600);
 
 $cookie_token = null;
 if (isset($_COOKIE['token'])) {
@@ -27,26 +26,6 @@ $mysqli->close();
 
 
 
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo ($title); ?></title>
-    <link rel="shortcut icon" href="/gpxies/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Krub:400,600&display=swap" rel="stylesheet">
-</head>
-
-<body>
-
-<?php
-
 /* Обработка полученных из формы данных */
 if (isset($_POST['login'])) $username = $_POST['login'];
 if (isset($_POST['pass'])) $password = $_POST['pass'];
@@ -60,7 +39,6 @@ if (isset($username) && isset($password) && isset($email)) {
 
     $mysqli = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldbname);
     $query = "SELECT username FROM users WHERE username='$username' OR email='$email' ORDER BY date_reg DESC LIMIT 1";
-
         
     if (mysqli_connect_errno()) {
         $msg = "Подключение к серверу MySQL невозможно. Код ошибки: %s\n" . mysqli_connect_error();
@@ -76,11 +54,7 @@ if (isset($username) && isset($password) && isset($email)) {
 
 
     // Создание записи в БД
-    if ($isExist) {
-
-        $msg = "Пользователь с таким именем или электронным адресом уже зарегистрирован.";
-    } else {
-
+    if (!$isExist) {
         // Создание hash для пароля
         $mysqli = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldbname);
         $passwordmd5 = password_hash($password, PASSWORD_DEFAULT);
@@ -96,31 +70,41 @@ if (isset($username) && isset($password) && isset($email)) {
         $mysqli->close();
     }
 }/* Конец обработки */
+
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><?php echo ($title); ?></title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Krub:400,600&display=swap" rel="stylesheet">
+</head>
 
+<body>
 
-<?php
-        if ($isExist) {
-            echo "Пользователь с таким именем или адресом уже зарегистрирован<br>";
-        }
-    ?>
 
     <?php
         if ($isCreated) {
             echo "Пользователь успешно создан<br>";
+        } elseif ($isExist) {
+            echo "Пользователь с таким именем или адресом уже зарегистрирован<br>";
         }
     ?>
 
     <?php if ($isAuth) :  ?>
         <?php
-        //echo "Вы успешно авторизовались";
+        echo "Вы успешно авторизовались";
         //echo "<script type='text/javascript'> document.location = 'main.php'; </script>"; 
         ?>
     <?php else : ?>
         <?php
-        //echo "Вы не авторизованы";
+        echo "Вы не авторизованы";
         //echo "<script type='text/javascript'> document.location = 'login.php'; </script>"; 
         ?>
 
@@ -130,7 +114,7 @@ if (isset($username) && isset($password) && isset($email)) {
             <h3 class="header__signUp">
                 Регистрация
             </h3>
-            <label for="loginField">логин или email</label>
+            <label for="loginField">логин</label>
             <input type="text" id="login" name="login" required>
             <label for="Password">пароль</label>
             <input type="password" id="Password" name="pass" required>
@@ -144,7 +128,7 @@ if (isset($username) && isset($password) && isset($email)) {
             </select>
             <div class="container__button--primary">
                 <button type="submit" class="button--primary">Зарегистрироваться</button>
-                <a href="#" class="link">Вход</a>
+                <a href="login.php" class="link">Вход</a>
             </div>
 
         </form>
