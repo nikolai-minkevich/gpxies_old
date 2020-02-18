@@ -1,34 +1,12 @@
 <?php
 include_once "../conf.php";
 
-$cookie_token = null;
-if (isset($_COOKIE['token'])) {
-    $cookie_token = $_COOKIE['token'];
-}
-
 /* Проверка авторизации */
-$isAuth = false;
-$mysqli = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldbname);
-$query = "SELECT username, date_reg, token FROM users WHERE token='$cookie_token' ORDER BY date_reg DESC LIMIT 1";
-if (mysqli_connect_errno()) {
-    printf("Подключение к серверу MySQL невозможно. Код ошибки: %s\n", mysqli_connect_error());
-    exit;
-}
-if ($result = $mysqli->query($query)) {
-    $row = $result->fetch_assoc();
-    if ($row['username'] != '') {
-        $isAuth = true;
-    }
-    $result->close();
-}
-$mysqli->close();
-/* Окончание проверки авторизации */
+include('./_auth.php');
 
 /* Обработка полученных из формы данных */
 if (isset($_POST['login'])) $username = $_POST['login'];
 if (isset($_POST['pass'])) $password = $_POST['pass'];
-
-$isAuth = false;
 
 if (isset($username) && isset($password)) {
 
@@ -90,25 +68,8 @@ if (isset($username) && isset($password)) {
 
 <body>
 
-    <?php
+<?php include('./_menu.php'); ?>
 
-    
-    ?>
-
-
-
-
-
-    <?php if ($isAuth) :  ?>
-        <?php
-        echo "Вы успешно авторизовались $cookie_token";
-        //echo "<script type='text/javascript'> document.location = 'main.php'; </script>"; 
-        ?>
-    <?php else : ?>
-        <?php
-        echo "Вы не авторизованы";
-        //echo "<script type='text/javascript'> document.location = 'login.php'; </script>"; 
-        ?>
 
         <!-- форма регистрации templates/login.html -->
 
@@ -130,7 +91,6 @@ if (isset($username) && isset($password)) {
 
         <!-- // -->
 
-    <?php endif ?>
 </body>
 
 </html>
