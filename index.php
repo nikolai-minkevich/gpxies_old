@@ -23,7 +23,7 @@ include('./_auth.php');
     
     <?php include('./_menu.php'); ?>
 
-
+    <?php include('./_sitemap.php'); ?>
 
 
 </html>

@@ -1,3 +1,5 @@
+<?php $pagename = basename($_SERVER['PHP_SELF']); ?>
+
 <header class="page-header">
     <div class="container">
         <div class="header__top">
@@ -15,23 +17,24 @@
             <?php endif ?>
         </div>
         <nav>
+            <?php /* Исправить на цикл (?) */ ?>
             <ul class="header-menu">
-                <li>
+                <li <?php if($pagename=='map.php') echo "class='header-menu-selected'"?>>
                     <a href="map.php">Карта</a>
                 </li>
-                <li>
+                <li <?php if($pagename=='list.php') echo "class='header-menu-selected'"?>>
                     <a href="list.php">Список</a>
                 </li>
-                <li>
+                <li <?php if($pagename=='fav.php') echo "class='header-menu-selected'"?>>
                     <a href="fav.php">Закладки</a>
                 </li>
-                <li>
+                <li <?php if($pagename=='create.php') echo "class='header-menu-selected'"?>>
                     <a href="create.php">Создать</a>
                 </li>
-                <li>
+                <li <?php if($pagename=='upload.php') echo "class='header-menu-selected'"?>>
                     <a href="upload.php">Загрузить</a>
                 </li>
-                <li>
+                <li <?php if($pagename=='search.php') echo "class='header-menu-selected'"?>>
                     <a href="search.php">Поиск</a>
                 </li>
             </ul>

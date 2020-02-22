@@ -70,7 +70,7 @@ if (isset($username) && isset($password) && isset($email)) {
 
 <body>
 
-<?php include('./_menu.php'); ?>
+<?php // include('./_menu.php'); ?>
 
     <?php
         if ($isCreated) {
