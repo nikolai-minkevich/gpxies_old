@@ -4,7 +4,10 @@ include_once "../conf.php";
 /* Проверка авторизации */
 include('./_auth.php');
 
+
+
 /* Обработка полученных из формы данных */
+/*
 if (isset($_POST['login'])) $username = $_POST['login'];
 if (isset($_POST['pass'])) $password = $_POST['pass'];
 
@@ -48,7 +51,9 @@ if (isset($username) && isset($password)) {
         $result->close();
     }
     $mysqli->close();
-}/* Конец обработки */
+}
+*/
+/* Конец обработки */
 
 
 ?>
@@ -71,23 +76,40 @@ if (isset($username) && isset($password)) {
 <?php // include('./_menu.php'); ?>
 
 
-<?php if (!$isAuth): ?>
+<?php if ($isAuth): ?>
 
 
-        <!-- форма регистрации templates/login.html -->
+        <!-- форма регистрации templates/settings.html -->
 
-        <form class="container__signIn" action="login.php" method="post">
-            <h3 class="header__signIn">
-                Вход
-            </h3>
-            <label for="loginField">логин или email</label>
-            <input type="text" id="loginField" name="login" required>
-            <label for="Password">пароль</label>
-            <input type="password" id="Password" name="pass" required>
-            <a href="restore.php" class="link">Забыли пароль?</a>
-            <div class="container__button--primary">
-                <button type="submit" class="button--primary">Войти</button>
-                <a href="signup.php" class="link">Регистрация</a>
+        <form class="container" action="settings.php" method="post">
+            <div class="container__setting">
+                <h3 class="header__setting">
+                    Настройки аккаунта 
+                    <?php if (isset($username)) {
+                        echo "<span id='username'>$username</span>";
+                    } ?>
+                </h3>
+                    <label for="loginField">email</label>
+                    <input type="text" id="loginField" name="email" required>
+                <label for="countries">страна</label>
+                <select id="countries" name="country">
+                    <option id="Россия" value="1">Russia</option>
+                    <option id="Украина" value="2">Ukraine</option>
+                    <option id="Финляндия" value="3">Finland</option>
+                </select>
+                
+                <h4>
+                    Смена пароля
+                </h4>
+                <label for="oldPassword">введите старый пароль </label>
+                <input type="password" id="oldPassword" name="pass0">
+                <label for="newPassword1">введите новый пароль дважды</label>
+                <input type="password" id="newPassword1" name="pass1">
+                <input type="password" id="newPassword2" name="pass2">
+                
+                <div class="container__button--primary">
+                    <button type="submit" class="button--primary" disabled>сохранить</button>                   
+                </div>
             </div>
         </form>
 
@@ -95,7 +117,8 @@ if (isset($username) && isset($password)) {
         <!-- // -->
 
 <?php else: ?>
-<h2> "Вы успешно вошли в систему"; </h2>
+
+<?php include('./_notdenied.php'); ?>
 
 <?php endif ?>
 
