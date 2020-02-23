@@ -3,6 +3,12 @@ include_once "../conf.php";
 /* Проверка авторизации */
 include('./_auth.php');
 
+spl_autoload_register(function ($class) {
+	$class = str_replace('\\', '/', $class);
+    //include __DIR__.'/../' . $class . '.php';
+    include __DIR__.'/lib/' . $class . '.php';
+});
+
 $idhash = null;
 $data = null;
 if (isset($_GET['id'])) {
@@ -32,12 +38,31 @@ if (isset($_GET['id'])) {
 http://gpxies.ru/show.php?id=cfcd208495d565ef66e7dff9f98764da
 */
 
+
 /*
 Получаем id
 Загружаем файл в массив
 Массив передаём в полилайн leaflet
 
 */
+
+
+////////// phpGPX //////////////
+
+include('./lib/phpGPX/phpGPX.php');
+use phpGPX\phpGPX;
+echo "use OK";
+$gpx = new phpGPX();
+echo "new OK";
+$file = $gpx->load("./gpx/$data[2].gpx");
+echo "load OK";
+
+
+///////////////
+
+
+
+
 
 ?>
 
