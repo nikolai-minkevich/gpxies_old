@@ -5,7 +5,7 @@ angular.module('gpxiesApp')
                 $scope.test = 'TesT';
                 $scope.trackList = [];
 
-                $http.get('data/tracks.json').then(function (response) {
+                $http.get('gpx/tracks.json').then(function (response) {
                     $scope.trackList = response.data;
                     $scope.showTrack1 = function (filename) {
                         console.log ('its showTrack in trackView');

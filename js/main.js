@@ -12,18 +12,18 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 var latlngs = [];
 var polyline;
 
-
+/*
 function onMapClick(e) {
     console.log([e.latlng.lat, e.latlng.lng]);
     latlngs.push([e.latlng.lat, e.latlng.lng]);
     polyline = L.polyline(latlngs, { color: 'red' }).addTo(mymap);
 
 }
-
+*/
 
 function showTrack(trackName) {
     console.log ('yep',trackName);
-    var gpx = 'data/gpx/' + trackName ; 
+    var gpx = '/gpx/' + trackName ; 
     new L.GPX(gpx, {
         async: true,
         marker_options: {
