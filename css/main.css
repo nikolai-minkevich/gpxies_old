@@ -15,7 +15,11 @@ input:hover{
     background: whitesmoke;
     border: black solid 1px;
 }
-
+button, 
+button:active, 
+button:focus {
+    outline: none;
+}
 select{
     height: 30px;
     font-size: 14px;
@@ -29,14 +33,17 @@ body{
     line-height: 24px;
 }
 .container {    
-    width: 1200px;
+    max-width: 1200px;
+    min-width: 970px;
     margin-left: auto;
     margin-right: auto;
     padding: 15px;
-    background-color: white;
+    min-height: 160px;
+    background-color:white
 }
 .container--max{ 
         width: 1200px;
+        min-width: 970px;
         display: flex;
         flex-direction: column;
         margin-left: auto;
@@ -45,6 +52,8 @@ body{
 }
 .page-header {
     background-color:whitesmoke;
+
+    
 }
 .header-menu  a{
     background: #eae9e9; /* фон кнопки */
@@ -61,7 +70,6 @@ body{
     display: flex
 }
 .header-btn  a{
-
     outline: none; /* убирать контур в Mozilla */
     padding: 3px;
     border-radius: 7px;
@@ -222,3 +230,63 @@ button {
     color: inherit;
     background-color: transparent;
     }
+
+/*show*/
+.show-header{
+
+}
+.show-header__menu{
+    display: flex;
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+/*show*/
+.show-header__menu li{
+    border-left: solid 2px  rgba(128, 128, 128, 0.3);
+    outline: none; /* убирать контур в Mozilla */
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    display:block;
+    font-size: 14px;
+} 
+.show-header__menu button:hover{
+
+} 
+.show-header__menu li:hover{
+    background-color: rgba(128, 128, 128, 0.3);
+}
+/*
+.show-header__menu li:first-child{
+    border-left: 0px;
+
+}*/
+.show-header__title{
+    font-weight: 600;
+    font-size: 24px;
+}
+.show-header__title--secondary{
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.container__header-show{
+    display: flex;
+    padding: 0px;
+}
+
+.show-statistics{
+    padding: 15px
+}
+.show-statistics--list{
+    padding-left: 0px;
+}
+.show-statistics--list__full-statistics{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    max-height: 90px;
+
+}
