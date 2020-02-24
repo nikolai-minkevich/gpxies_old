@@ -2,12 +2,7 @@
 include_once "../conf.php";
 /* Проверка авторизации */
 include('./_auth.php');
-
-spl_autoload_register(function ($class) {
-	$class = str_replace('\\', '/', $class);
-    //include __DIR__.'/../' . $class . '.php';
-    include __DIR__.'/lib/' . $class . '.php';
-});
+include('./_autoload.php');
 
 $idhash = null;
 $data = null;
@@ -51,11 +46,30 @@ http://gpxies.ru/show.php?id=cfcd208495d565ef66e7dff9f98764da
 
 include('./lib/phpGPX/phpGPX.php');
 use phpGPX\phpGPX;
-echo "use OK";
 $gpx = new phpGPX();
-echo "new OK";
 $file = $gpx->load("./gpx/$data[2].gpx");
-echo "load OK";
+
+echo "Этот файл содержит ".count($file->tracks) ." треков";
+
+/* Подсчёт треков и сегментов */
+
+foreach ($file->tracks as $track)
+{
+    // Statistics for whole track
+    $track_stats = $track->stats->toArray();
+    
+    echo "трек содержит ".$track_stats["distance"].'m';
+
+    foreach ($track->segments as $segment)
+    {
+    	// Statistics for segment of track
+        $segment_stats = $segment->stats->toArray();
+        echo "Сегмент содержит ".$segment_stats["distance"].'m';
+
+    }
+}
+
+/* Объединение всех сегментов и треков в один трек с одним сегментом */
 
 
 ///////////////
