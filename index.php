@@ -23,6 +23,8 @@ include('./_auth.php');
     
     <?php include('./_menu.php'); ?>
 
+    <p>Gpsies is dead. Long live Gpxies!</p>
+
     <?php include('./_sitemap.php'); ?>
 
 

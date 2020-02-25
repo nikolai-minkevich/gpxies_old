@@ -12,6 +12,9 @@ if (isset($username) && isset($password)) {
 
     // Поиск данных в БД
     $mysqli = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldbname);
+    $username = $mysqli->real_escape_string($username);
+    $password = $mysqli->real_escape_string($password);
+
     $query = "SELECT id, username, email, passmd5 FROM users WHERE username='$username' OR email='$username' ORDER BY date_reg DESC LIMIT 1";
 
     if (mysqli_connect_errno()) {
