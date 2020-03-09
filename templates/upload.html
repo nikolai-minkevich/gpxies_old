@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body class="upload" ng-controller='trackView'>
-    <div class="container__upload">
+    <div class="container">
         <header class="upload-header">
             <h1 class="title__primary">
                 Загрузить новый трек
@@ -17,7 +17,7 @@
         </header>
     </div>
     <main class="page-main">
-        <div class="container__upload">
+        <div class="container">
             <form action="#">
                 <div class="upload-form--container__top">
                     <select name="sport-choice" id="sport-choice-id">
@@ -33,12 +33,13 @@
                 <div class="upload-form--container__bottom">
                     <input type="file" id="upload-track-file" name="upload-track-file"> 
                     <label for="upload-track-file" class="upload-file--button">Файлы</label>
-                    <input type="submit" id="upload-track-file--submit" value="Загрузить"> 
-                    <label for="upload-track-file--submit" class="upload-file-submit--button">Название загруженного файла</label>
+                    <label class="upload-file-submit--button">Название загруженного файла</label>
                 </div>
-                <button class="button--primary">
-                    Сохранить
-                </button>
+                <div class="upload-form--container__bottom">
+                    <button type="submit" class="button--primary">
+                        Сохранить
+                    </button>
+                </div>
             </form>
         </div>
     </main>
