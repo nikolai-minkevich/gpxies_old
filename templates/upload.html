@@ -8,32 +8,39 @@
         crossorigin="" />
     <link rel="stylesheet" href="../css/main.css">
 </head>
-<body class="create" ng-controller='trackView'>
-
+<body class="upload" ng-controller='trackView'>
+    <div class="container__upload">
         <header class="upload-header">
-            <h1 class="upload-header--title__primary">
-                Загрузка трека
+            <h1 class="title__primary">
+                Загрузить новый трек
             </h1>
         </header>
-        <main class="upload-main">
-                <form name="upload-main--form">
-                    <div class="upload-main--container-top">
-                        <select name="sport-choice" id="sport-choice-id">
-                            <option value="1" id="bicycle">Велосипед</option>
-                            <option value="2" id="run">Бег</option>
-                            <option value="3" id="skiing">Лыжи</option>
-                        </select>
-                        <button class="button--primary">
-                            Новый трек
-                        </button>
+    </div>
+    <main class="page-main">
+        <div class="container__upload">
+            <form action="#">
+                <div class="upload-form--container__top">
+                    <select name="sport-choice" id="sport-choice-id">
+                        <option value="1" id="bicycle">Велосипед</option>
+                        <option value="2" id="run">Бег</option>
+                        <option value="3" id="skiing">Лыжи</option>
+                    </select>
+                    <input type="text" class="track-name--input" style="text-indent: 5px;" placeholder="Название трека" /> 
+                    <div class="private-checkbox--container">
                         <input type="checkbox" value="1" id="private-checkbox">  <label for="private-checkbox">Приватный</label>  
                     </div>
-                    <div class="upload-main--container-bottom">
-                        <input type="file" id="upload-track-file" name="upload-track-file"> 
-                        <label for="upload-track-file--submit" class="upload-file--button">Файлы</label>
-                        <input type="submit" id="upload-track-file--submit" value="Загрузить"> 
-                    </div>
-                </form>
-        </main>
+                </div>
+                <div class="upload-form--container__bottom">
+                    <input type="file" id="upload-track-file" name="upload-track-file"> 
+                    <label for="upload-track-file" class="upload-file--button">Файлы</label>
+                    <input type="submit" id="upload-track-file--submit" value="Загрузить"> 
+                    <label for="upload-track-file--submit" class="upload-file-submit--button">Название загруженного файла</label>
+                </div>
+                <button class="button--primary">
+                    Сохранить
+                </button>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
