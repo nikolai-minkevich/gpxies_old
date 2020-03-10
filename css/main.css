@@ -15,6 +15,7 @@ input:hover{
     background: whitesmoke;
     border: black solid 1px;
 }
+
 button, 
 button:active, 
 button:focus {
@@ -24,6 +25,12 @@ select{
     height: 30px;
     font-size: 14px;
     margin-bottom: 10px;
+}
+.title__primary{
+    font-weight: 600;
+    font-size: 24px;
+
+    margin: 0px;
 }
 
 body{
@@ -38,9 +45,13 @@ body{
     margin-left: auto;
     margin-right: auto;
     padding: 15px;
-    min-height: 160px;
     background-color:white
 }
+/*
+.container{
+        min-height: 160px;
+}
+*/
 .container--max{ 
         width: 1200px;
         min-width: 970px;
@@ -202,6 +213,9 @@ li {
     box-shadow: 0 3px rgb(108, 112, 110) inset;
 }
 
+
+
+
 .container__button--primary{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -232,9 +246,7 @@ button {
     }
 
 /*show*/
-.show-header{
 
-}
 .show-header__menu{
     display: flex;
     padding-left: 0px;
@@ -251,18 +263,12 @@ button {
     display:block;
     font-size: 14px;
 } 
-.show-header__menu button:hover{
 
-} 
 .show-header__menu li:hover{
     background-color: rgba(128, 128, 128, 0.3);
 }
-/*
-.show-header__menu li:first-child{
-    border-left: 0px;
 
-}*/
-.show-header__title{
+.show-header__title .title__primary{
     font-weight: 600;
     font-size: 24px;
 }
@@ -288,5 +294,146 @@ button {
     flex-wrap: wrap;
     padding-left: 0px;
     max-height: 90px;
+}
+
+.create-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.create-form--container{
+    display: flex;
+    max-width: 600px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.create-form--container input, .upload-form--container__top input{
+    margin: 0px;
+    padding: 0px;
+    margin-right: 20px;
+} 
+.create-form--container input[type=checkbox], .upload-form--container__top input[type=checkbox]{
+    width: 30px;
+    margin-right: 0px;
+}
+.create-form--container select, .upload-form--container__top select{
+    margin: 0px;
+    padding: 0px;
+    margin-right: 20px;
+
+} 
+.create-form--container .button--primary, .upload-form--container__top .button--primary {
+    max-width: 150px;
+    padding: 5px;
+}
+.private-checkbox--container{
+    display: flex;
+    align-items: center;
+}
+
+.create-form--container .private-checkbox--container{
+    margin-right: 20px;
+}
+.track-name--input{
+    padding-left: 2px;
+}
+
+.upload-form--container__top{
+    display: flex;
+    max-width: 600px;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.upload-form--container__bottom{
+    display: flex;
+    max-width: 600px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.upload-form--container__bottom input[type=file]{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    position: absolute;
+    z-index: -10;
+}
+
+.upload-form--container__bottom input{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+.upload-file--button{
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 30px;
+    border-radius: 4px;
+    text-align: center;
+    display: block;
+    border: 1px solid #15c541;
+    color: #15c541;
+    margin-right: 20px;
+}
+
+.upload-file--button:hover{
+    background-color: rgb(108, 112, 110, 0.3);
+    color: white;
+    border-radius: 4px;
+    border: 1px solid  rgb(108, 112, 110, 0.3);}
+
+.upload-file--button:active{
+    background-color: rgb(108, 112, 110, 0.6);
+    color: white;
+    border-radius: 4px;
+    border: 1px solid rgb(108, 112, 110, 0.6);
+}
+
+.container__upload{
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:white
+}
+
+
+.upload-form--container__bottom input:focus {
+    outline: none;
+}
+
+.upload-file-submit--button{
+    height: 30px;
+    text-align: center;
+    display: block;
+    color: #15c541;
+}
+
+.title__primary{
+    margin-top: 15px;
+}
+
+.upload-header--container{
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
