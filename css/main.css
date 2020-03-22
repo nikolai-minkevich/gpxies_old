@@ -53,18 +53,112 @@ body{
 }
 */
 .container--max{ 
-        width: 1200px;
-        min-width: 970px;
-        display: flex;
-        flex-direction: column;
-        margin-left: auto;
-        margin-right: auto;
-        flex-wrap: nowrap;
+    width: 1200px;
+    min-width: 970px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: nowrap;
 }
+
+.container-list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-filter{
+    display: flex;
+    padding: 0 20px 0 20px;
+}
+
+
+.container-filter--data, .container-filter--name, .container-filter--distance, .container-filter--type {
+    padding: 5px 10px 0 10px;
+    background-color: rgb(40, 177, 108);
+    color: white;
+    border: rgb(33,147,90, 0.3) 1.5px solid;
+    margin: 0 -1.5px -1.5px 0;
+    width: 270px;
+}
+.container-filter--name{
+    width: 350px;
+}
+
+.container-filter--distance{
+    width: 150px;
+}
+
+
+
+
+.container-filter--type{
+    flex-direction: column;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+}
+
+.container-filter--content .container-filter--data, .container-filter--content .container-filter--type, .container-filter--content .container-filter--name, .container-filter--content .container-filter--distance{
+    background-color: rgb(245, 244, 244);
+    color: black;
+    padding: 5px 10px 5px 10px;
+    display: block;
+}
+
+.container-filter--actions{
+    display: flex;    
+    padding: 5px 10px 0 10px;
+    width: 150px;
+}
+.container-filter--actions .button--primary{
+    width: 100px;
+}
+.container-filter--actions__typical{
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+}
+.container-filter--checkbox{
+    width: 50px;   
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+
+}
+.container-filter--checkbox input{
+    padding: 0px;
+    margin: 1.5px 0 0 0;
+}
+
+
+
+.container-filter--data__distance label{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.container-filter--data__distance label:first-child{
+    margin-right: 10px;
+    margin-left: 0px;
+}
+.container-filter--data__distance input{
+    width: 90px;
+}
+
+.filter--title{
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    margin: 2px;
+}
+
+
+
+
 .page-header {
     background-color:whitesmoke;
-
-    
 }
 .header-menu  a{
     background: #eae9e9; /* фон кнопки */
@@ -332,14 +426,12 @@ button {
     display: flex;
     align-items: center;
 }
-
 .create-form--container .private-checkbox--container{
     margin-right: 20px;
 }
 .track-name--input{
     padding-left: 2px;
 }
-
 .upload-form--container__top{
     display: flex;
     max-width: 600px;

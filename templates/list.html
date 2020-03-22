@@ -1,0 +1,87 @@
+<!doctype html>
+<html ng-app='gpxiesApp'>
+<head>
+    <title>gpXies</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="list" ng-controller='trackView'>
+    <header class="list-header">
+        <div class="container container-list">
+            <h1 class="title__primary">
+                Список треков
+            </h1>
+            <form action="#">
+                <label for="input-filter">Фильтр
+                <input id="input-filter" type="text"></label>
+            </form>
+        </div>
+    </header>
+    <main class="page-main">
+        <form action="#">
+            <div class="container container-filter">
+                <div class="container-filter--checkbox">
+                </div>
+                <div class="container-filter--type">
+                    <h3 class="filter--title">Вид спорта</h3>
+                    <select name="sport-choice" id="sport-choice-id">
+                        <option value="1" id="bicycle">Велосипед</option>
+                        <option value="2" id="run">Бег</option>
+                        <option value="3" id="skiing">Лыжи</option>
+                    </select>
+                </div>
+                <div class="container-filter--data">
+                    <h3 class="filter--title">Дата</h3>
+                    <div class="container-filter--data__distance">
+                        <label for="input-filter--data__start">c</label>
+                        <input id="input-filter--data__start" type="text" placeholder="дд.мм.гггг">
+                        <label for="input-filter--data__finish">до</label>
+                        <input id="input-filter--data__finish" type="text" placeholder="дд.мм.гггг">
+                    </div>
+                </div>
+                <div class="container-filter--name">
+                    <label for="input-filter--name" class="filter--title">Название</label>
+                    <input id="input-filter--name" type="text">                
+                </div>
+                <div class="container-filter--distance">
+                    <label for="input-filter--distance" class="filter--title">Расстояние</label>
+                    <input id="input-filter--distance" type="text">                
+                </div>
+            </div>
+        </form>
+        <div class="container-filter--content">
+            <div class="container container-filter">
+                <div class="container-filter--checkbox">
+                    <input type="checkbox">
+                </div>
+                <div class="container-filter--type">
+                    Бег
+                </div>
+                <div class="container-filter--data">
+                    23.12.1998
+                </div>
+                <div class="container-filter--name">
+                    бегаю бегаю бегаю бегаю бегаю бегаю бегаю бегаю бегаю бегаю 
+                </div>
+                <div class="container-filter--distance">
+                    2 км
+                </div>
+                <div class="container-filter--actions">
+                    <div class="container-filter--actions__typical">
+                        <a href="#">Ред.</a>
+                        <a href="#">Удал.</a>
+                    </div>
+                    <a href="#" class="button--primary">Скачать GPX</a>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </main>
+</body>
+</html>
