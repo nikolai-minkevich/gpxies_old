@@ -5,33 +5,31 @@ include('./_autoload.php');
 
 /////// работа с загруженным файлом /////////////
 if (isset($_POST['act'])) {
+
+    $title="New track " . date('Y-m-d');
+    if (isset($_POST['title'])) {
+        $title = $_POST['title'];
+    }
+
     echo "<br>Оригинальное имя файла на компьютере клиента. " . $_FILES['userfile']['name'];
     //
 
     echo "<br>Mime-тип файла " . $_FILES['userfile']['type'];
-
     echo "<br>Размер в байтах принятого файла." . $_FILES['userfile']['size'];
-
     echo "<br>Временное имя, с которым принятый файл был сохранен на сервере." . $_FILES['userfile']['tmp_name'];
-
     echo "<br>Код ошибки. " . $_FILES['userfile']['error'];
-
     echo "<br>name. " . $_FILES['userfile']['name'];
 
-
-    // добавит 
 
     /* Проверка на скам */
 
     if (is_uploaded_file($_FILES['userfile']['tmp_name'])) {
         echo "Файл " . $_FILES['userfile']['name'] . " успешно загружен.\n";
 
-
-
-
         /* Создание записи в БД */
         $mysqli = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldbname);
-        $query = "INSERT INTO tracks (userid, title, email) VALUES ('$username', '$passwordmd5', '$email')";        
+        $title = $mysqli->real_escape_string($title);
+        $query = "INSERT INTO tracks (userid, title) VALUES ('$userid', '$title')";        
         if (mysqli_connect_errno()) {
             $msg = "Подключение к серверу MySQL невозможно. Код ошибки: %s\n" . mysqli_connect_error();
             exit;
@@ -39,6 +37,24 @@ if (isset($_POST['act'])) {
 
         if ($mysqli->query($query)) {
             $isCreated = true;
+            $newid = $mysqli->insert_id;
+            $hashid = hash('md5',$newid);
+
+            /* TODO: заменить 2 на 1 */
+            $mysqli2 = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldbname);
+            $query = "UPDATE tracks SET hashmd5='$hashid', filename='$hashid.gpx' WHERE id='$newid';";
+            if (mysqli_connect_errno()) {
+                $msg = "Подключение к серверу MySQL невозможно. Код ошибки: %s\n" . mysqli_connect_error();
+                exit;
+            }
+
+            if ($mysqli2->query($query)) {
+                echo 'track id' . $hashid;
+            } else {
+                $msg = "Ошибка записи в БД";
+            }
+            $mysqli2->close();
+
         } 
         $mysqli->close();
 
@@ -46,7 +62,7 @@ if (isset($_POST['act'])) {
 
         /* перенос в каталог gpx */
         $uploaddir = './gpx/';
-        $uploadfilename = hash("md5", $_FILES['userfile']['name']);
+        $uploadfilename = $hashid;
         $uploadfilepath = $uploaddir . $uploadfilename;
 
 
