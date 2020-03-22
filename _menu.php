@@ -6,7 +6,7 @@
             <h1 class="page-header__title"> gp<big>x</big>ies</h1>
             <?php if ($isAuth) :  ?>
                 <div class="header-btn">
-                    <a class="login" href="settings.php"><?php echo "$username";?></a>
+                    <a class="login" href="settings.php"><?=$username?> <?=$userid?></a>
                     <a class="sign-out" href="logout.php">выйти</a>
                 </div>
             <?php else : ?>
@@ -19,23 +19,23 @@
         <nav>
             <?php /* Исправить на цикл (?) */ ?>
             <ul class="header-menu">
-                <li <?php if($pagename=='map.php') echo "class='header-menu-selected'"?>>
-                    <a href="map.php">Карта</a>
+                <li>
+                    <a href="map.php" <?php if($pagename=='map.php') echo "class='header-menu-selected'"?>>Карта</a>
                 </li>
-                <li <?php if($pagename=='list.php') echo "class='header-menu-selected'"?>>
-                    <a href="list.php">Список</a>
+                <li >
+                    <a href="list.php" <?php if($pagename=='list.php') echo "class='header-menu-selected'"?>>Список</a>
                 </li>
-                <li <?php if($pagename=='fav.php') echo "class='header-menu-selected'"?>>
-                    <a href="fav.php">Закладки</a>
+                <li >
+                    <a href="fav.php" <?php if($pagename=='fav.php') echo "class='header-menu-selected'"?>>Закладки</a>
                 </li>
-                <li <?php if($pagename=='create.php') echo "class='header-menu-selected'"?>>
-                    <a href="create.php">Создать</a>
+                <li >
+                    <a href="create.php" <?php if($pagename=='create.php') echo "class='header-menu-selected'"?>>Создать</a>
                 </li>
-                <li <?php if($pagename=='upload.php') echo "class='header-menu-selected'"?>>
-                    <a href="upload.php">Загрузить</a>
+                <li >
+                    <a href="upload.php" <?php if($pagename=='upload.php') echo "class='header-menu-selected'"?>>Загрузить</a>
                 </li>
-                <li <?php if($pagename=='search.php') echo "class='header-menu-selected'"?>>
-                    <a href="search.php">Поиск</a>
+                <li >
+                    <a href="search.php" <?php if($pagename=='search.php') echo "class='header-menu-selected'"?>>Поиск</a>
                 </li>
             </ul>
         </nav>

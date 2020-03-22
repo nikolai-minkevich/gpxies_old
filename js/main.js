@@ -33,10 +33,10 @@ function showTrack(trackName) {
         }
     }).on('loaded', function (e) {
         mymap.fitBounds(e.target.getBounds());
-        document.getElementById('track-info').innerHTML = e.target.get_distance();
+        //document.getElementById('track-info').innerHTML = e.target.get_distance();
     }).addTo(mymap);
 }
 
 // event handlers
-mymap.on('click', onMapClick);
+//mymap.on('click', onMapClick);
 

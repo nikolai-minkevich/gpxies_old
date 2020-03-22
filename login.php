@@ -12,6 +12,9 @@ if (isset($username) && isset($password)) {
 
     // Поиск данных в БД
     $mysqli = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldbname);
+    $username = $mysqli->real_escape_string($username);
+    $password = $mysqli->real_escape_string($password);
+
     $query = "SELECT id, username, email, passmd5 FROM users WHERE username='$username' OR email='$username' ORDER BY date_reg DESC LIMIT 1";
 
     if (mysqli_connect_errno()) {
@@ -26,6 +29,11 @@ if (isset($username) && isset($password)) {
             
             $id = $row[0];
             $token = hash('md5', time() + strlen($username));
+
+
+
+/* TODO: заменить 2 на 1 */
+
 
             $mysqli2 = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldbname);
             $query = "UPDATE users SET token='$token' WHERE id='$id';";

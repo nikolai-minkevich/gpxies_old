@@ -1,12 +1,8 @@
 <?php
 include_once "../conf.php";
 
-
-
 /* Проверка авторизации */
 include('./_auth.php');
-
-
 
 /* Обработка полученных из формы данных */
 if (isset($_POST['login'])) $username = $_POST['login'];
@@ -20,6 +16,11 @@ if (isset($username) && isset($password) && isset($email)) {
     // Проверка на уникальность юзернейма и емейла
 
     $mysqli = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldbname);
+
+    $username = $mysqli->real_escape_string($username);
+    $password = $mysqli->real_escape_string($password);
+    $email = $mysqli->real_escape_string($email);
+
     $query = "SELECT username FROM users WHERE username='$username' OR email='$email' ORDER BY date_reg DESC LIMIT 1";
         
     if (mysqli_connect_errno()) {
