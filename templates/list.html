@@ -15,8 +15,8 @@
                 Список треков
             </h1>
             <form action="#">
-                <label for="input-filter">Фильтр
-                <input id="input-filter" type="text"></label>
+                <label>Фильтр
+                <input type="text"></label>
             </form>
         </div>
     </header>
@@ -55,7 +55,9 @@
         <div class="container-filter--content">
             <div class="container container-filter">
                 <div class="container-filter--checkbox">
-                    <input type="checkbox">
+                        <input type="checkbox" class="check__input" id="filter--checkbox">
+                    <label class="check" for="filter--checkbox">
+                    </label>
                 </div>
                 <div class="container-filter--type">
                     Бег
@@ -77,11 +79,7 @@
                     <a href="#" class="button--primary">Скачать GPX</a>
                 </div>
             </div>
-
-
-
         </div>
-
     </main>
 </body>
 </html>
