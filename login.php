@@ -107,29 +107,13 @@ if (isset($username) && isset($password)) {
         <script>
             setTimeout(function() {
                 window.location.href = 'index.php';
-            }, 10 * 1000);
+            }, 2 * 1000);
         </script>
 
         <div class="message message-success">
-            <p>Вы успешно вошли в систему.</p>
+            <p class="message-header">Вы успешно вошли в систему.</p>
             <p>Сейчас вы будете перенаправлены на <a href="index.php">главную страницу</a></p>
         </div>
-
-        //
-        <div class="message message-info">
-            <p>Вниманию пользователей: с 00:00 до 06:00 сервер булдет недоступен.</p>
-        </div>
-        <div class="message message-success">
-            <p>Вы успешно вошли в систему.</p>
-        </div>
-        <div class="message message-warning">
-            <p>Вы не указали название трека!</p>
-        </div>
-        <div class="message message-error">
-            <p>Доступ запрещен.</p>
-        </div>
-
-
 
     <?php endif ?>
 

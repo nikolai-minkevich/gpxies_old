@@ -143,8 +143,8 @@ body{
 .page-header {
     background-color:whitesmoke;
 }
-.header-menu  a{
-    background: #eae9e9; /* фон кнопки */
+.header-menu a{
+    background-color: #eae9e9; /* фон кнопки */
     outline: none; /* убирать контур в Mozilla */
     padding: 7px;
     border-radius: 7px;
@@ -157,7 +157,7 @@ body{
 .header-btn{
     display: flex
 }
-.header-btn  a{
+.header-btn a{
     outline: none; /* убирать контур в Mozilla */
     padding: 3px;
     border-radius: 7px;
@@ -185,11 +185,11 @@ body{
     color: #fff;
 }
 .header-menu a:hover { 
-    background: rgb(232,95,76);
+    background-color: rgb(232,95,76);
     color: #fff;} /* при наведении курсора мышки */
 
 .header-menu-selected { 
-    background: rgb(202, 60, 41);
+    background-color: rgb(202, 60, 41) !important;
     color: #fff;} /* при наведении курсора мышки */    
 
 a {
@@ -569,8 +569,16 @@ button {
     padding: 5px;
 }
 
+.message a {
+    text-decoration: underline; 
+}
+
 .message-wide {
     width:100%;
+}
+
+.message-margin-bottom {
+    margin-bottom: 15px;
 }
 
 .message-info {
@@ -595,4 +603,8 @@ button {
     color:rgb(34, 0, 0);
     border-color: rgb(187, 0, 0);
     background-color: #e0a9a99c
+}
+
+.message-header {
+    font-weight: bold;
 }

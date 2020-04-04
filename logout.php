@@ -25,7 +25,7 @@ if (isset($isAuth) && isset($username)) {
 
 
 } else {
-     include('./_notdenied.php'); 
+    include('./_notdenied.php'); 
 }
 
 
