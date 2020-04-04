@@ -3,7 +3,7 @@
 <header class="page-header">
     <div class="container">
         <div class="header__top">
-            <h1 class="page-header__title"> gp<big>x</big>ies</h1>
+            <h1 class="page-header__title"><a href="index.php">gp<big>x</big>ies</a></h1>
             <?php if ($isAuth) :  ?>
                 <div class="header-btn">
                     <a class="login" href="settings.php"><?=$username?> <?=$userid?></a>

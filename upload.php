@@ -116,16 +116,51 @@ $gpx = new phpGPX();
 
     <?php include('./_menu.php'); ?>
 
-    <h1>Загрузка трека</h1>
 
-    <!-- Тип кодирования данных, enctype, ДОЛЖЕН БЫТЬ указан ИМЕННО так -->
-    <form enctype="multipart/form-data" action="upload.php" method="POST">
-        <input type="hidden" name="act" value="upload">
-        <!-- Поле MAX_FILE_SIZE должно быть указано до поля загрузки файла -->
-        <input type="hidden" name="MAX_FILE_SIZE" value="300000" />
-        <!-- Название элемента input определяет имя в массиве $_FILES -->
-        Отправить этот файл: <input name="userfile" type="file" />
-        <input type="submit" value="Отправить файл" />
-    </form>
+
+
+<div class="container">
+        <header class="upload-header">
+            <div class="container__upload">
+                <h1 class="title__primary">
+                    Загрузить новый трек
+                </h1>
+            </div>
+        </header>
+    </div>
+    <main class="page-main">
+        <div class="container">
+            <!-- Тип кодирования данных, enctype, ДОЛЖЕН БЫТЬ указан ИМЕННО так -->
+            <form enctype="multipart/form-data" action="upload.php" method="POST">
+                <input type="hidden" name="act" value="upload">
+                <!-- Поле MAX_FILE_SIZE должно быть указано до поля загрузки файла -->
+                <input type="hidden" name="MAX_FILE_SIZE" value="300000" />
+                <div class="upload-form--container__top">
+                    <select name="sport-choice" id="sport-choice-id">
+                        <option value="1" id="bicycle">Велосипед</option>
+                        <option value="2" id="run">Бег</option>
+                        <option value="3" id="skiing">Лыжи</option>
+                    </select>
+                    <input type="text" class="track-name--input" style="text-indent: 5px;" placeholder="Название трека" /> 
+                    <div class="private-checkbox--container">
+                        <input type="checkbox" value="1" id="private-checkbox" class="check__input">  <label for="private-checkbox" class="check"> 
+                            Приватный</label>  
+                    </div>
+                </div>
+                <div class="upload-form--container__bottom">
+                    <!-- Название элемента input определяет имя в массиве $_FILES -->
+                    <input type="file" id="upload-track-file" name="userfile"> 
+                    <label for="upload-track-file" class="upload-file--button">Файлы</label>
+                    <label class="upload-file-submit--button">Название загруженного файла</label>
+                </div>
+                <div class="upload-form--container__bottom">
+                    <button type="submit" class="button--primary">
+                        Загрузить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
 
 </body>
