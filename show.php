@@ -105,7 +105,7 @@ foreach ($file->tracks as $track) {
 
 </head>
 
-<body class="start-page" ng-controller='trackView'>
+<body class="show" ng-controller='trackView'>
 
     <?php include('./_menu.php'); ?>
 

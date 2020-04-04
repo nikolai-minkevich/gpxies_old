@@ -19,7 +19,7 @@ include('./_auth.php');
     <link href="https://fonts.googleapis.com/css?family=Krub:400,600&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="list" >
 
     <?php include('./_menu.php'); ?>
 

@@ -112,7 +112,7 @@ $gpx = new phpGPX();
 
 </head>
 
-<body>
+<body class="upload">
 
     <?php include('./_menu.php'); ?>
 

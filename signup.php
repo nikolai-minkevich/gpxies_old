@@ -69,7 +69,7 @@ if (isset($username) && isset($password) && isset($email)) {
     <link href="https://fonts.googleapis.com/css?family=Krub:400,600&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="container__signUp">
 
 <?php // include('./_menu.php'); ?>
 

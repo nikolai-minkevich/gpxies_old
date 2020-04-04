@@ -11,13 +11,13 @@ if ($showSiteMap): ?>
 <b><a href="restore.php">restore.php</a></b>
 <b><a href="settings.php">settings.php</a></b>
 <b><a href="show.php?id=cfcd208495d565ef66e7dff9f98764da">show.php</a></b> 
-<a href="create.php">create.php</a> 
+<b><a href="create.php">create.php</a> </b>
 <a href="edit.php">edit.php</a> 
 <a href="fav.php">fav.php</a> 
 <a href="map.php">map.php</a> 
 <a href="fav.php">fav.php</a> 
-<a href="list.php">list.php</a> 
-<a href="upload.php">upload.php</a> 
+<b><a href="list.php">list.php</a> </b>
+<b><a href="upload.php">upload.php</a> </b>
 <a href="search.php">search.php</a> 
 </div>
 
