@@ -558,3 +558,41 @@ button {
     color: black;
 }
 
+.message {
+    text-align: center;
+    border-radius: 15px;
+    border: solid 1px;
+    border-color: gray;
+    background-color: lightgray;
+    width: 50%;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.message-wide {
+    width:100%;
+}
+
+.message-info {
+    color: rgb(0, 36, 43);
+    border-color: rgb(0, 163, 192);
+    background-color: #b9e0dd9c
+}
+
+.message-success {
+    color: rgb(0, 27, 0);
+    border-color: green;
+    background-color: #d0ebda9c
+}
+
+.message-warning {
+    color:rgb(41, 27, 0);
+    border-color: rgb(236, 154, 0);
+    background-color: #f1d8b29c
+}
+
+.message-error {
+    color:rgb(34, 0, 0);
+    border-color: rgb(187, 0, 0);
+    background-color: #e0a9a99c
+}

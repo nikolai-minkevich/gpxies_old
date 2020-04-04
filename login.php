@@ -26,13 +26,13 @@ if (isset($username) && isset($password)) {
 
         $row = $result->fetch_row();
         if (password_verify($password, $row[3])) {
-            
+
             $id = $row[0];
             $token = hash('md5', time() + strlen($username));
 
 
 
-/* TODO: заменить 2 на 1 */
+            /* TODO: заменить 2 на 1 */
 
 
             $mysqli2 = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldbname);
@@ -76,10 +76,11 @@ if (isset($username) && isset($password)) {
 
 <body>
 
-<?php // include('./_menu.php'); ?>
+    <?php // include('./_menu.php'); 
+    ?>
 
 
-<?php if (!$isAuth): ?>
+    <?php if (!$isAuth) : ?>
 
 
         <!-- форма регистрации templates/login.html -->
@@ -102,10 +103,35 @@ if (isset($username) && isset($password)) {
 
         <!-- // -->
 
-<?php else: ?>
-<h2> "Вы успешно вошли в систему"; </h2>
+    <?php else : ?>
+        <script>
+            setTimeout(function() {
+                window.location.href = 'index.php';
+            }, 10 * 1000);
+        </script>
 
-<?php endif ?>
+        <div class="message message-success">
+            <p>Вы успешно вошли в систему.</p>
+            <p>Сейчас вы будете перенаправлены на <a href="index.php">главную страницу</a></p>
+        </div>
+
+        //
+        <div class="message message-info">
+            <p>Вниманию пользователей: с 00:00 до 06:00 сервер булдет недоступен.</p>
+        </div>
+        <div class="message message-success">
+            <p>Вы успешно вошли в систему.</p>
+        </div>
+        <div class="message message-warning">
+            <p>Вы не указали название трека!</p>
+        </div>
+        <div class="message message-error">
+            <p>Доступ запрещен.</p>
+        </div>
+
+
+
+    <?php endif ?>
 
 
 </body>
