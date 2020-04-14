@@ -6,7 +6,7 @@
             <h1 class="page-header__title"><a href="index.php">gp<big>x</big>ies</a></h1>
             <?php if ($isAuth) :  ?>
                 <div class="header-btn">
-                    <a class="login" href="settings.php"><?=$username?> <?=$userid?></a>
+                    <a class="login" href="settings.php"><?=$username?> (<?=$userid?>)</a>
                     <a class="sign-out" href="logout.php">выйти</a>
                 </div>
             <?php else : ?>

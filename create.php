@@ -14,12 +14,11 @@ include('./_auth.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo ($title); ?></title>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">    
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="        crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/gpx.min.js"></script>
 
 
@@ -30,7 +29,17 @@ include('./_auth.php');
 
     <?php include('./_menu.php'); ?>
 
+
     <?php if ($isAuth) : ?>
+
+        <?php if ($isSaved) : ?>
+            <div class="message message-success message-margin-bottom">
+                <p class="message-header">Успешно сохранено!</p>
+                <p>Ваш трек доступен по ссылке: <a href="show.php?id=">https://gpxies.com/show.php?id=</a>.</p>
+            </div>
+        <?php endif ?>
+
+
 
         <div class="container">
             <header class="create-header">

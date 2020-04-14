@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     // Поиск данных в БД
     $mysqli = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldbname);
     $idhash = $mysqli->real_escape_string($idhash);
-    $query = "SELECT u.username, t.title, t.hashmd5, t.date, t.isprivate FROM tracks t INNER JOIN users u ON t.userid = u.id WHERE t.hashmd5 = '$idhash' ";
+    $query = "SELECT u.username, t.title, t.hashmd5, t.filename, t.date, t.isprivate FROM tracks t INNER JOIN users u ON t.userid = u.id WHERE t.hashmd5 = '$idhash' ";
 
     if (mysqli_connect_errno()) {
         $msg = "Подключение к серверу MySQL невозможно. Код ошибки: %s\n" . mysqli_connect_error();
@@ -50,7 +50,7 @@ include('./lib/phpGPX/phpGPX.php');
 use phpGPX\phpGPX;
 
 $gpx = new phpGPX();
-$file = $gpx->load("./gpx/$data[2].gpx");
+$file = $gpx->load("./gpx/$data[3]");
 
 $file_stats = [
     "track_count" => count($file->tracks) ,
@@ -172,7 +172,7 @@ foreach ($file->tracks as $track) {
                 <div id="mapid"></div>
                 <script src="js/main.js"></script>
                 <script>
-                    showTrack('<?=$data[2]?>.gpx');
+                    showTrack('<?=$data[3]?>');
                 </script>
             </div>
             <div class="container">
