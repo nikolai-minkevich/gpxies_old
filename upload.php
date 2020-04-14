@@ -157,7 +157,7 @@ if (isset($_POST['act']) && isset($userid)) {
             }
             $mysqli->close();
         } else {
-            file_put_contents('log.txt', time() . ' ERROR: ' . $username . '(' . $userid . ') failed to upload file with error ' . $error['code'] . ' ' . $error['msg'] . ' ( size: ' . $meta['size'] . 'kb , mime: ' . $meta['mime'] . ' , filename: ' . $origin_filename . ' )' . '\r\n', FILE_APPEND | LOCK_EX);
+            file_put_contents('log.txt', date("Y-m-d H:i:s")  . ' ERROR: ' . $username . '(' . $userid . ') failed to upload file with error ' . $error['code'] . ' ' . $error['msg'] . ' ( size: ' . $meta['size'] . 'kb , mime: ' . $meta['mime'] . ' , filename: ' . $origin_filename . ' )' . '<br />', FILE_APPEND | LOCK_EX);
 
         }
 
@@ -168,7 +168,7 @@ if (isset($_POST['act']) && isset($userid)) {
 
             if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfilepath)) {
                 $isSuccess = true;
-                file_put_contents('log.txt', time() . ' SUCCESS: ' . $username . '(' . $userid . ') uploaded file to ' . $uploadfilepath . ' ( size: ' . $meta['size'] . 'kb , mime: ' . $meta['mime'] . ' , id: ' . $newid . ' , link: https://gpxies.ru/show.php?id=' . $hashid . ' )' . '\r\n', FILE_APPEND | LOCK_EX);
+                file_put_contents('log.txt', date("Y-m-d H:i:s") . ' SUCCESS: ' . $username . '(' . $userid . ') uploaded file to ' . $uploadfilepath . ' ( size: ' . $meta['size'] . 'kb , mime: ' . $meta['mime'] . ' , id: ' . $newid . ' , link: https://gpxies.ru/show.php?id=' . $hashid . ' )' . '<br />', FILE_APPEND | LOCK_EX);
             } else {
                 $error = [
                     "code" => 1,
